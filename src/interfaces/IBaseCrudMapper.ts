@@ -1,7 +1,5 @@
-export interface BaseCrudMapper<T, DTOIn, DTOOut> {
-  fromDTO(dtoIn: DTOIn);
+export interface IBaseCrudMapper<T, DTOIn, DTOOut> {
+  fromDTO(dtoIn: DTOIn, id?: number): T;
 
-  fromDTO(dtoIn: DTOIn, id: number): T;
-
-  toDTO(T): DTOOut;
+  toDTO(entity: T): DTOOut;
 }

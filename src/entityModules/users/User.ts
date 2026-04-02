@@ -1,14 +1,20 @@
-interface Geo {
+export interface Geo {
   lat: string;
   long: string;
 }
 
-interface UserAddress {
+export interface UserAddress {
   street: string;
   suite: string;
   city: string;
   zipcode: string;
   geo: Geo;
+}
+
+export interface Company {
+  name: string;
+  catchPhrase: string;
+  bs: string;
 }
 
 export interface User {
@@ -19,4 +25,5 @@ export interface User {
   address: UserAddress;
   phone: string;
   website: string;
+  company: Company;
 }

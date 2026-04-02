@@ -1,13 +1,13 @@
-export interface IBaseCrudService<DTOIn, DTOOut> {
-  findById(id: number): DTOOut;
+export interface IBaseCrudService<T, DTOIn, DTOOut> {
+  findById(id: number): Promise<DTOOut>;
 
-  findAll(): DTOOut[];
+  findAll(): Promise<DTOOut[]>;
 
-  create(dtoIn: DTOIn): DTOOut;
+  // create(dtoIn: DTOIn): DTOOut;
 
-  update(dtoIn: DTOIn, id: number): DTOOut;
+  // update(dtoIn: DTOIn, id: number): DTOOut;
 
-  deleteById(id: number): void;
+  // deleteById(id: number): void;
 
-  deleteAll(): void;
+  // deleteAll(): void;
 }

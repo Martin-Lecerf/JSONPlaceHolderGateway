@@ -1,16 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '../../common/http/http.service';
 import { User } from './User';
+import { BaseCrudService } from 'src/abstracts/BaseCrudService.service';
+import { UserDTOIn } from './DTO/userDTOIn';
+import { UserDTOOut } from './DTO/userDTOOut';
+import { UsersMapper } from './usersMapper';
 
 @Injectable()
-export class UsersService {
-  constructor(private http: HttpService) {}
-
-  async findById(id: number): Promise<User> {
-    return this.http.get<User>(`/users/${id}`);
-  }
-
-  async findAll(): Promise<User[]> {
-    return this.http.get<User[]>('/users');
+export class UsersService extends BaseCrudService<User, UserDTOIn, UserDTOOut> {
+  constructor(http: HttpService, mapper: UsersMapper) {
+    super(http, mapper, '/users');
   }
 }

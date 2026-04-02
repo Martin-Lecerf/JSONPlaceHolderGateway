@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from 'src/common/http/http.service';
+import { CommentDTOIn } from './DTO/commentsDTOIN';
+import { BaseCrudService } from 'src/abstracts/BaseCrudService.service';
+import { CommentDTOOut } from './DTO/commentsDTOOut';
+import { CommentsMapper } from './commentsMapper';
+import { UserComment } from './Comment';
 
 @Injectable()
-export class CommentsService {
-  constructor(private http: HttpService) {}
-
-  async findById(id: number): Promise<Comment> {
-    return this.http.get<Comment>(`/comments/${id}`);
-  }
-
-  async findAll(): Promise<Comment[]> {
-    return this.http.get<Comment[]>('/comments');
+export class CommentsService extends BaseCrudService<
+  UserComment,
+  CommentDTOIn,
+  CommentDTOOut
+> {
+  constructor(http: HttpService, mapper: CommentsMapper) {
+    super(http, mapper, '/comments');
   }
 }
