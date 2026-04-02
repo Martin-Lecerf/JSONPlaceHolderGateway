@@ -4,6 +4,7 @@ import { AlbumModule } from './album/album.module';
 import { CommentsModule } from './comments/comments.module';
 import { PostsModule } from './posts/posts.module';
 import { PhotosModule } from './photos/photos.module';
+import { TodosModule } from './todos/todos.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { PhotosModule } from './photos/photos.module';
     CommentsModule,
     PostsModule,
     PhotosModule,
+    TodosModule,
   ],
 })
 export class EntityModules {}
